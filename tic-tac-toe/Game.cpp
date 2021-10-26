@@ -1,6 +1,7 @@
 #include "Game.h"
 Game::Game()
 {
+    isDraw = false;
 	turn = 'X';
 	board.resize(3, std::vector<char>(3));
 	board[0][0] = '1';
