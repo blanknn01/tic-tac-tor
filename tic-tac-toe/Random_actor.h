@@ -2,6 +2,10 @@
 #include<vector>
 #include<iostream>
 #include<ctime>
+/*
+* making the same things as in game class but with some 
+* other features in game_phase() method
+*/
 class Random_actor
 {
 private:

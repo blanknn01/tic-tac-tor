@@ -47,7 +47,7 @@ void Game:: display_board() {
 void Game::game_phase()
 {
     int choice;
-     std::cin >> choice;
+     std::cin >> choice;// by the choice we will know the place
      int i, j;
     switch (choice) {
     case 1: i = 0; j = 0; break;
@@ -64,34 +64,41 @@ void Game::game_phase()
     }
 
     if (getTurn() == 'X' && board[i][j] != 'X' && board[i][j] != 'O') {
-        board[i][j] = 'X';
-        setTurn('O');
+        board[i][j] = 'X';//changing the board
+        setTurn('O');// setting turn for next player
        
     }
+    //same for the 2nd player
     else if (getTurn() == 'O' && board[i][j] != 'X' && board[i][j] != 'O') {
         board[i][j] = 'O';
         setTurn('X');
     }
+    //if box is alreadyy filled
     else {
-        std::cout << "Box already filled!n Please choose another!!nn";
+        std::cout << "Box already filled";
         game_phase();
     }
- 
+ //dispalying again 
     display_board();
 }
 
 bool Game::check_endGame()
 {
-    for (int i = 0; i < 3; i++) {
+    /*
+    * checking if if have 'x' or 'o' in a row or in a column
+     */
+    for (int i = 0; i < 3; i++) { 
         if (board[i][0] == board[i][1] && board[i][0] == board[i][2] || board[0][i] == board[1][i] && board[0][i] == board[2][i])
         {
             return false;
         }
     }
+    //checking if we have x or o in a dioganal
     if (board[0][0] == board[1][1] && board[0][0] == board[2][2] || board[0][2] == board[1][1] && board[0][2] == board[2][0])
     {
         return false;
-    }
+    } 
+    //if we have draw then 
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++)
         {

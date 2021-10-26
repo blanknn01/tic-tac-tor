@@ -77,6 +77,10 @@ void Random_actor::game_phase()
     }
     else {
         int choice = rand() % 10 + 1;
+        /*
+        * it will generated automatically 
+        * number from 1-9
+        */
         switch (choice) {
         case 1: i = 0; j = 0; break;
         case 2: i = 0; j = 1; break;
@@ -90,6 +94,7 @@ void Random_actor::game_phase()
         default:
             std::cout << "Please from 1 to 9";
         }
+        //and pass it to board and change turn for player
         if (getTurn() == 'O' && board[i][j] != 'X' && board[i][j] != 'O') {
             board[i][j] = 'O';
             setTurn('X');
